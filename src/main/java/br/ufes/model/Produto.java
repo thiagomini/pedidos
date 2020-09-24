@@ -8,9 +8,9 @@ public final class Produto {
     private double quantidade;
 
     public Produto(String nome, double valorUnitario, double quantidade) {
-        this.nome = nome;
+        setNome(nome);
         setValorUnitario(valorUnitario);
-        this.quantidade = quantidade;
+        setQuantidade(quantidade);
     }
 
     public boolean estoqueDisponivel(double quantidadeNecessaria) {
@@ -33,16 +33,23 @@ public final class Produto {
         return quantidade;
     }
 
+    private void setQuantidade(double quantidade) {
+        if (quantidade <= 0) {
+            throw new IllegalArgumentException("quantidade deve ser positiva!");
+        }
+        this.quantidade = quantidade;
+    }
+
     public void setNome(String nome) {
         if (nome == null) {
-            throw new RuntimeException("Nome inválido: " + nome);
+            throw new IllegalArgumentException("nome não deve ser null!");
         }
         this.nome = nome;
     }
 
     public void setValorUnitario(double valorUnitario) {
         if (valorUnitario <= 0) {
-            throw new RuntimeException("Valor inválido: " + valorUnitario);
+            throw new IllegalArgumentException("Valor unitário deve ser positivo!");
         }
         this.valorUltimaCompra = this.valorUnitario;
         this.valorUnitario = valorUnitario;

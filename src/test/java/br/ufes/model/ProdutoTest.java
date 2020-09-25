@@ -59,8 +59,8 @@ class ProdutoTest {
     @Test
     void CT006() {
         Produto produto = new Produto("produto", 1, 2);
-        Boolean actualValue = produto.estoqueDisponivel(1);
-        assertEquals(true, actualValue);
+        boolean actualValue = produto.estoqueDisponivel(1);
+        assertTrue(actualValue);
     }
 
     /**
@@ -70,8 +70,8 @@ class ProdutoTest {
     @Test
     void CT007() {
         Produto produto = new Produto("produto", 1, 1);
-        Boolean actualValue = produto.estoqueDisponivel(2);
-        assertEquals(false, actualValue);
+        boolean actualValue = produto.estoqueDisponivel(2);
+        assertFalse(actualValue);
     }
 
     /**
@@ -81,7 +81,7 @@ class ProdutoTest {
     @Test
     void CT010() {
         Produto produto = new Produto("produto", 1, 1);
-        Boolean actualValue = produto.estoqueDisponivel(1);
-        assertEquals(true, actualValue);
+        boolean actualValue = produto.estoqueDisponivel(1);
+        assertTrue(actualValue);
     }
 }

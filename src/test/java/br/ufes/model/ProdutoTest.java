@@ -73,4 +73,15 @@ class ProdutoTest {
         Boolean actualValue = produto.estoqueDisponivel(2);
         assertEquals(false, actualValue);
     }
+
+    /**
+     * Verifica que a função estoqueDisponivel retorna <b>True</b> quando a quantidade de produtos é <b>igual</b> à quantidade
+     * requisitada
+     */
+    @Test
+    void CT010() {
+        Produto produto = new Produto("produto", 1, 1);
+        Boolean actualValue = produto.estoqueDisponivel(1);
+        assertEquals(true, actualValue);
+    }
 }

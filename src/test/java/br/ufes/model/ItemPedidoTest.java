@@ -60,4 +60,32 @@ class ItemPedidoTest {
 
         assertEquals(expectedMessage, actualMessage);
     }
+
+    /**
+     * Verifica que o valor total do item é a quantidade de itens multiplicado pelo valor unitário
+     */
+    @Test
+    public void CT011() {
+        ItemPedido itemPedido = criarItemPedido(
+                "produto",
+                10,
+                10,
+                10
+        );
+
+        assertEquals(itemPedido.getValorItem(), 100, 0.01);
+    }
+
+    @Test
+    public void CT012() {
+        ItemPedido itemPedido = criarItemPedido(
+                "produto",
+                15,
+                10,
+                5
+        );
+
+        String expectedString = "produto, valor Unitario: R$ 15.0, quantidade no pedido:5.0, valor Total: R$ 75,00";
+        assertEquals(expectedString, itemPedido.toString());
+    }
 }

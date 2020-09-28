@@ -11,7 +11,7 @@ class ProdutoTest {
      * Verifica que o nome de um produto não pode ser null
      */
     @Test
-    void CT003() {
+    void CT001() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             Produto produto = new Produto(null, 1, 1);
         });
@@ -26,7 +26,7 @@ class ProdutoTest {
      * Verifica que o valor unitario de um Produto não pode ser <= 0
      */
     @Test
-    void CT004() {
+    void CT002() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             Produto produto = new Produto("produto", 0, 1);
         });
@@ -41,7 +41,7 @@ class ProdutoTest {
      * Verifica que a quantidade de Produtos iniciais não pode ser <= 0
      */
     @Test
-    void CT005() {
+    void CT003() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             Produto produto = new Produto("produto", 1, 0);
         });
@@ -57,7 +57,7 @@ class ProdutoTest {
      * requisitada
      */
     @Test
-    void CT006() {
+    void CT004() {
         Produto produto = new Produto("produto", 1, 2);
         boolean actualValue = produto.estoqueDisponivel(1);
         assertTrue(actualValue);
@@ -68,7 +68,7 @@ class ProdutoTest {
      * requisitada
      */
     @Test
-    void CT007() {
+    void CT005() {
         Produto produto = new Produto("produto", 1, 1);
         boolean actualValue = produto.estoqueDisponivel(2);
         assertFalse(actualValue);
@@ -79,7 +79,7 @@ class ProdutoTest {
      * requisitada
      */
     @Test
-    void CT010() {
+    void CT006() {
         Produto produto = new Produto("produto", 1, 1);
         boolean actualValue = produto.estoqueDisponivel(1);
         assertTrue(actualValue);

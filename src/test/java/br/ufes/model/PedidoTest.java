@@ -65,7 +65,7 @@ class PedidoTest {
      * Verifica que a data de vencimento de um Pedido criado deve ser de 1 mês após a data informada
      */
     @Test
-    public void CT013() {
+    public void CT001() {
         LocalDate dataPedido = getDataPadrao();
 
         Produto produto = getProdutoPadrao();
@@ -80,7 +80,7 @@ class PedidoTest {
      * Verifica que O Produto informado no construtor deve estar presentes no Pedido
      */
     @Test
-    public void CT014() {
+    public void CT002() {
         Produto produto = new Produto("Produto A", 10, 10);
         Pedido pedido = criarPedido(produto, 3);
 
@@ -96,7 +96,7 @@ class PedidoTest {
      * Verifica que não deve ser possível adicionar um produto que já esteja no pedido
      */
     @Test
-    public void CT015() {
+    public void CT003() {
         Produto produto1 = new Produto("Produto A", 10, 10);
         Produto produto2 = new Produto("Produto A", 10, 10);
         Pedido pedido = criarPedido(produto1, 3);
@@ -116,7 +116,7 @@ class PedidoTest {
      * Verifica que O produto e a quantidade informados para essa função devem ser adicionados corretamente
      */
     @Test
-    public void CT016() {
+    public void CT004() {
         Produto produto = new Produto("Produto B", 10, 10);
         Pedido pedido = criarPedido(produto, 3);
 
@@ -132,7 +132,7 @@ class PedidoTest {
      * Verifica que O produto de nome informado deve ser removido corretamente
      */
     @Test
-    public void CT017() {
+    public void CT005() {
         Produto produto = new Produto("Produto C", 10, 10);
         Pedido pedido = criarPedido(produto, 1);
 
@@ -149,7 +149,7 @@ class PedidoTest {
      * Verifica que o Produto de nome pesquisado deve ser retornado da lista de produtos
      */
     @Test
-    public void CT018() {
+    public void CT006() {
         Produto produto = new Produto("Produto D", 10, 10);
         Pedido pedido = criarPedido(produto, 1);
 
@@ -163,7 +163,7 @@ class PedidoTest {
      * Verifica que um Optional vazio deve ser retornado caso não encontre o produto de nome especificado.
      */
     @Test
-    public void CT019() {
+    public void CT007() {
         Produto produto = new Produto("Produto E", 10, 10);
         Pedido pedido = criarPedido(produto, 1);
 
@@ -177,7 +177,7 @@ class PedidoTest {
      * Verifica que o valor total está correto (com um tipo de produto)
      */
     @Test
-    public void CT020() {
+    public void CT008() {
         Produto produto = new Produto("Produto E", 10, 10);
         Pedido pedido = criarPedido(produto, 3);
 
@@ -192,7 +192,7 @@ class PedidoTest {
      * Verifica que o desconto deve ser aplicado corretamente no valor total (com dois tipos de produto)
      */
     @Test
-    public void CT021() {
+    public void CT009() {
         Produto produto1 = new Produto("Produto 1", 10, 10);
         Pedido pedido = criarPedido(produto1, 3);
 

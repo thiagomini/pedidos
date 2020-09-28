@@ -25,7 +25,7 @@ class ItemPedidoTest {
      * Verifica que não é possível adicionar um item de pedido quando não há estoque do produto
      */
     @Test
-    public void CT008() {
+    public void CT001() {
         Exception exception = assertThrows(RuntimeException.class, () -> {
             ItemPedido itemPedido = criarItemPedido(
                     "produto",
@@ -45,7 +45,7 @@ class ItemPedidoTest {
      * Verifica que a quantidade adquirida em um ItemPedido deve ser > 0
      */
     @Test
-    public void CT009() {
+    public void CT002() {
         Exception exception = assertThrows(RuntimeException.class, () -> {
             ItemPedido itemPedido = criarItemPedido(
                     "produto",
@@ -65,7 +65,7 @@ class ItemPedidoTest {
      * Verifica que o valor total do item é a quantidade de itens multiplicado pelo valor unitário
      */
     @Test
-    public void CT011() {
+    public void CT003() {
         ItemPedido itemPedido = criarItemPedido(
                 "produto",
                 10,
@@ -76,8 +76,11 @@ class ItemPedidoTest {
         assertEquals(itemPedido.getValorItem(), 100, 0.01);
     }
 
+    /**
+     * Verifica que o método toString() do itemPedido imprime corretamente as informações do item de pedido
+     */
     @Test
-    public void CT012() {
+    public void CT004() {
         ItemPedido itemPedido = criarItemPedido(
                 "produto",
                 15,

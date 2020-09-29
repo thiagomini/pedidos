@@ -160,7 +160,7 @@ class PedidoTest {
 
     /**
      * Função <b>getItemPorNome()</b><br>
-     * Verifica que um Optional vazio deve ser retornado caso não encontre o produto de nome especificado.
+     * Verifica que nenhum produto deve ser retornado caso não encontre o produto de nome especificado.
      */
     @Test
     public void CT007() {

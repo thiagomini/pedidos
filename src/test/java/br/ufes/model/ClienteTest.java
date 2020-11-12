@@ -10,7 +10,7 @@ class ClienteTest {
      * Verifica que o codigo de um cliente não pode ser null
      */
     @Test
-    public void CT001() {
+    void CT001() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             Cliente cliente = new Cliente("Nome", null);
         });
@@ -26,7 +26,7 @@ class ClienteTest {
      * Verifica que o nome de um cliente não pode ser null
      */
     @Test
-    public void CT002() {
+    void CT002() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             Cliente cliente = new Cliente(null, "12345678901");
         });

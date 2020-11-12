@@ -3,11 +3,11 @@ package br.ufes.model;
 public final class Cliente {
 
     private String nome;
-    private String CNPJOuCPF;
+    private String cnpjOuCpf;
 
     public Cliente(String nome, String codigo) {
         setNome(nome);
-        setCNPJOuCPF(codigo);
+        setCnpjOuCpf(codigo);
     }
 
     public String getNome() {
@@ -21,20 +21,20 @@ public final class Cliente {
         this.nome = nome;
     }
 
-    public void setCNPJOuCPF(String codigo) {
+    public void setCnpjOuCpf(String codigo) {
         if (codigo == null) {
             throw new IllegalArgumentException("codigo não deve ser null!");
         }
-        this.CNPJOuCPF = codigo;
+        this.cnpjOuCpf = codigo;
     }
 
-    public String getCNPJOuCPF() {
-        return CNPJOuCPF;
+    public String getCnpjOuCpf() {
+        return cnpjOuCpf;
     }
 
     @Override
     public String toString() {
-        return "Cliente: " + nome + ", CNPJ/CPF = " + CNPJOuCPF;
+        return "Cliente: " + nome + ", CNPJ/CPF = " + cnpjOuCpf;
     }
 
 }

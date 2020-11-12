@@ -12,7 +12,7 @@ public final class Pedido {
 
     protected Cliente cliente;
     protected double valor;
-    protected final double desconto = 0.05;
+    protected static final double desconto = 0.05;
     protected double valorDesconto;
     protected double valorAPagar;
     protected final ArrayList<ItemPedido> itens = new ArrayList<>();
@@ -43,7 +43,7 @@ public final class Pedido {
     protected Optional<ItemPedido> getItemPorNome(String nomeProduto) {
         Optional<ItemPedido> itemEncontrado = Optional.empty();
         for (ItemPedido item : itens) {
-            if (item.getProduto().getNome().toLowerCase().equals(nomeProduto.toLowerCase())) {
+            if (item.getProduto().getNome().equalsIgnoreCase(nomeProduto)) {
                 itemEncontrado = Optional.of(item);
             }
         }

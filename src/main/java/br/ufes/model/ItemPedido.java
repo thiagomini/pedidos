@@ -18,7 +18,7 @@ public final class ItemPedido {
 
     public ItemPedido(Produto produto, double quantidadeAdquirida) {
         if (!produto.estoqueDisponivel(quantidadeAdquirida)) {
-            throw new RuntimeException("Estoque indisponível para atender a quantidade solicitada (" + quantidadeAdquirida
+            throw new IllegalArgumentException("Estoque indisponível para atender a quantidade solicitada (" + quantidadeAdquirida
                     + ") para o produto " + produto.getNome()
                     + ", restam " + produto.getQuantidade() + " em estoque.");
         }

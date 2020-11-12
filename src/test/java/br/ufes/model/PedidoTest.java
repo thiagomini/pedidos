@@ -72,7 +72,7 @@ class PedidoTest {
         Cliente cliente = getClientePadrao();
         Pedido pedido = new Pedido(cliente, produto, 1, dataPedido);
 
-        assertEquals(pedido.getDataVencimento(), dataPedido.plusMonths(1));
+        assertEquals(dataPedido.plusMonths(1), pedido.getDataVencimento());
     }
 
     /**
@@ -88,7 +88,7 @@ class PedidoTest {
 
         Produto produtoEncontrado = itemEncontrado.produto;
 
-        assertEquals(produtoEncontrado.getNome(), "Produto A");
+        assertEquals("Produto A", produtoEncontrado.getNome());
     }
 
     /**
@@ -101,7 +101,7 @@ class PedidoTest {
         Produto produto2 = new Produto("Produto A", 10, 10);
         Pedido pedido = criarPedido(produto1, 3);
 
-        Exception exception = assertThrows(RuntimeException.class, () -> {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             pedido.addItem(produto2, 1);
         });
 
@@ -122,9 +122,9 @@ class PedidoTest {
 
         ItemPedido itemEncontrado = pedido.getItemPorNome("Produto B").get();
 
-        double quantidadeEsperada = itemEncontrado.quantidade;
+        double quantidadeDeItens = itemEncontrado.quantidade;
 
-        assertEquals(quantidadeEsperada, 3);
+        assertEquals(3, quantidadeDeItens);
     }
 
     /**
@@ -183,7 +183,7 @@ class PedidoTest {
 
         double valorTotal = pedido.getValorAPagar();
 
-        assertEquals(valorTotal, 28.5, 0.01);
+        assertEquals(28.5,valorTotal, 0.01);
 
     }
 
@@ -201,7 +201,7 @@ class PedidoTest {
 
         double valorTotal = pedido.getValorAPagar();
 
-        assertEquals(valorTotal, 42.75, 0.01);
+        assertEquals(42.75, valorTotal, 0.01);
 
     }
 

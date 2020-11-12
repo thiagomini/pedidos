@@ -26,7 +26,7 @@ class ItemPedidoTest {
      */
     @Test
     public void CT001() {
-        Exception exception = assertThrows(RuntimeException.class, () -> {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             ItemPedido itemPedido = criarItemPedido(
                     "produto",
                     1,
@@ -46,7 +46,7 @@ class ItemPedidoTest {
      */
     @Test
     public void CT002() {
-        Exception exception = assertThrows(RuntimeException.class, () -> {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             ItemPedido itemPedido = criarItemPedido(
                     "produto",
                     1,
@@ -73,7 +73,7 @@ class ItemPedidoTest {
                 10
         );
 
-        assertEquals(itemPedido.getValorItem(), 100, 0.01);
+        assertEquals(100, itemPedido.getValorItem(), 0.01);
     }
 
     /**

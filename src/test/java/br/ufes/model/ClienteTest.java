@@ -6,9 +6,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ClienteTest {
 
-    public ClienteTest() {
-    }
-
     /**
      * Verifica que o codigo de um cliente não pode ser null
      */

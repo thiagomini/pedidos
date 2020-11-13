@@ -88,7 +88,7 @@ class ItemPedidoTest {
                 5
         );
 
-        String expectedString = "produto, valor Unitario: R$ 15.0, quantidade no pedido:5.0, valor Total: R$ 75,00";
+        String expectedString = "produto, valor unitário: R$15,00, quantidade no pedido: 5.0, valor total: R$75,00";
         assertEquals(expectedString, itemPedido.toString());
     }
 }

@@ -205,9 +205,72 @@ class PedidoTest {
 
     }
 
+    /**
+     * <b>Construtor</b>
+     * Verifica que não é possível criar um pedido com número negativo de itens
+     */
+    @Test
+    void CT010() {
+        Produto produto = new Produto("Produto A", 10, 1);
+        Cliente cliente = getClientePadrao();
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            new Pedido(cliente, produto, -1, LocalDate.now());
+        });
+
+        assertEquals("Informe uma quantidade válida!", exception.getMessage());
+    }
+
+    /**
+     * Função <b>removerItem</b>
+     * Verifica que não é possível remover um item que não existe no pedido.
+     */
+    @Test
+    void CT011() {
+        Produto produto = new Produto("Produto A", 10, 1);
+        Pedido pedido = criarPedido(produto, 1);
 
 
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            pedido.removerItem("Produto B");
+        });
 
+        assertEquals( "Item Produto B não encontrado", exception.getMessage());
+    }
 
+    /**
+     * <b>Construtor</b>
+     * Verifica que não é possível criar um pedido com um cliente nulo
+     */
+    @Test
+    void CT012() {
+        Produto produto = new Produto("Produto A", 10, 1);
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            new Pedido(null, produto, -1, LocalDate.now());
+        });
 
+        assertEquals("Informe um cliente válido", exception.getMessage());
+    }
+
+    /**
+     * Função <b>toString</b>
+     * Verifica que imprime todos os campos são impressos corretamente
+     */
+    @Test
+    void VT013() {
+        Produto produto = new Produto("Produto A", 10, 3);
+        Cliente cliente = getClientePadrao();
+        Pedido pedido = new Pedido(cliente, produto, 3, LocalDate.parse("2020-11-13"));
+
+        String expectedMessage = "--------------- Pedido --------------" +
+                "\nCliente: Fulano, CNPJ/CPF = 123.456.789-01" +
+                "\nData: 13/11/2020, Data de vencimento: 13/12/2020" +
+                "\nValor sem desconto: R$30,00" +
+                "\nDesconto: R$1,50 (5.0%)" +
+                "\nValor a pagar: R$28,50" +
+                "\nItens do pedido:" +
+                "\n\t- Produto A, valor unitário: R$10,00, quantidade no pedido: 3.0, valor total: R$30,00";
+
+        assertEquals(expectedMessage, pedido.toString());
+
+    }
 }

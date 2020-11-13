@@ -53,9 +53,9 @@ public final class ItemPedido {
     public String toString() {
         DecimalFormat df = new DecimalFormat("0.00");
         return produto.getNome()
-                + ", valor Unitario: R$ " + valorUnitario
-                + ", quantidade no pedido:" + quantidade
-                + ", valor Total: R$ " + df.format(getValorItem());
+                + ", valor unitário: R$" + df.format(valorUnitario)
+                + ", quantidade no pedido: " + quantidade
+                + ", valor total: R$" + df.format(getValorItem());
     }
 
 }

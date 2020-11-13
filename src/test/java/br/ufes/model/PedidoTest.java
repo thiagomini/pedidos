@@ -212,10 +212,11 @@ class PedidoTest {
     @Test
     void CT010() {
         Produto produto = new Produto("Produto A", 10, 1);
+        LocalDate dataAtual = LocalDate.now();
         Cliente cliente = getClientePadrao();
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            new Pedido(cliente, produto, -1, LocalDate.now());
-        });
+        Exception exception = assertThrows(IllegalArgumentException.class, () ->
+                new Pedido(cliente, produto, -1, dataAtual)
+        );
 
         assertEquals("Informe uma quantidade válida!", exception.getMessage());
     }
@@ -244,9 +245,10 @@ class PedidoTest {
     @Test
     void CT012() {
         Produto produto = new Produto("Produto A", 10, 1);
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            new Pedido(null, produto, -1, LocalDate.now());
-        });
+        LocalDate dataAtual = LocalDate.now();
+        Exception exception = assertThrows(IllegalArgumentException.class, () ->
+            new Pedido(null, produto, -1, dataAtual)
+        );
 
         assertEquals("Informe um cliente válido", exception.getMessage());
     }

@@ -109,19 +109,19 @@ public final class Pedido {
     @Override
     public String toString() {
         DecimalFormat df = new DecimalFormat("0.00");
-        String retorno = "--------------- Pedido --------------\n";
-        retorno += cliente + "\n";
-        retorno += "Data: " + data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + ", ";
-        retorno += "Data de vencimento: " + dataVencimento.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + "\n";
-        retorno += "Valor sem desconto: R$" + df.format(getValor()) + "\n";
-        retorno += "Desconto: R$" + df.format(valorDesconto) + " (" + DESCONTO * 100 + "%)\n";
-        retorno += "Valor a pagar: R$" + df.format(valorAPagar) + "\n";
-        retorno += "Itens do pedido:\n";
+        StringBuilder retorno = new StringBuilder("--------------- Pedido --------------\n");
+        retorno.append(cliente).append("\n");
+        retorno.append("Data: ").append(data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))).append(", ");
+        retorno.append("Data de vencimento: ").append(dataVencimento.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))).append("\n");
+        retorno.append("Valor sem desconto: R$").append(df.format(getValor())).append("\n");
+        retorno.append("Desconto: R$").append(df.format(valorDesconto)).append(" (").append(DESCONTO * 100).append("%)\n");
+        retorno.append("Valor a pagar: R$").append(df.format(valorAPagar)).append("\n");
+        retorno.append("Itens do pedido:\n");
         for (ItemPedido item : itens) {
-            retorno += "\t- " + item.toString() + "\n";
+            retorno.append("\t- ").append(item.toString()).append("\n");
         }
 
-        return retorno.trim();
+        return retorno.toString().trim();
     }
 
 }

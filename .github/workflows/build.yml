@@ -34,3 +34,14 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+      - name: Analyze with SonarCloud
+        uses: sonarsource/sonarcloud-github-action@master
+        with:
+          projectBaseDir: /pedido
+          args: >
+            -Dsonar.organization=thiagomini
+            -Dsonar.projectKey=thiagomini_pedidos
+            -Dsonar.java.coverage.reportPaths=jacoco.xml
+            -Dsonar.sources=/main/java
+            -Dsonar.tests=test/java
+            -Dsonar.verbose=true
